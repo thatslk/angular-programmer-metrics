@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/app/styles/styles.scss",
               "src/app/styles/colors.scss"
             ],
@@ -94,6 +95,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/app/styles/styles.scss",
               "src/app/styles/colors.scss"
             ],

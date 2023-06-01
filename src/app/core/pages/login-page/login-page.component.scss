@@ -1,0 +1,29 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    &__form {
+        background-color: var(--material-theme--surfaces--surface1);
+        width: 550px;
+        border-radius: 15px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 5% 40px 5%;
+    }
+}
+
+.login-form {
+    &__login-input,
+    &__password-input,
+    &__submit {
+        width: 100%;
+    }
+}
+
+@media (max-width: 700px) {
+    .login-page {
+        &__form {
+            width: 100%;
+        }
+    }
+}

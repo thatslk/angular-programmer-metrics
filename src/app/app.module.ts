@@ -11,9 +11,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
-import { LoginService } from './core/services/login.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokensService } from './core/services/tokens.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +30,10 @@ import { TokensService } from './core/services/tokens.service';
     MatButtonModule,
     HttpClientModule
   ],
-  providers: [ApiInterceptor, LoginService,
-    { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    TokensService],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, 
+    useClass: ApiInterceptor, multi: true 
+}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

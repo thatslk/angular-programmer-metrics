@@ -1,5 +1,5 @@
-import { Component } from "@angular/core";
-import { LogoComponent } from './logo/header-logo.component'
+import { Component } from '@angular/core';
+import { LogoComponent } from './logo/header-logo.component';
 
 @Component({
     selector: 'app-header',
@@ -8,6 +8,4 @@ import { LogoComponent } from './logo/header-logo.component'
     imports: [LogoComponent],
     standalone: true,
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}

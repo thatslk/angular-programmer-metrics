@@ -12,11 +12,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiInterceptor } from './core/interceptors/api.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { UserPageComponent } from './core/pages/user-page/user-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
+    UserPageComponent,
   ],
   imports: [
     BrowserModule,

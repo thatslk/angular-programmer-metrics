@@ -1,0 +1,23 @@
+.user-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__block {
+        background-color: var(--material-theme--surfaces--surface1);
+        border-color: var(--material-theme--sys--outline);
+        border: 1px solid;
+        border-radius: 15px;
+        width: 100%;
+        height: 200px;
+        padding: 15px 25px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.user-identity {
+    justify-content: center;
+    align-items: center;
+}

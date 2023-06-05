@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -7,6 +7,11 @@ import { ApiInterceptor } from './services/api.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { JwtTokensService } from './services/jwt-tokens.service';
+
+export const jwtTokens: InjectionToken<string> = new InjectionToken(
+    'jwt tokens service'
+);
 
 const routes: Routes = [
     {
@@ -31,6 +36,10 @@ const routes: Routes = [
         HttpClientModule,
     ],
     providers: [
+        {
+            provide: jwtTokens,
+            useClass: JwtTokensService,
+        },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: ApiInterceptor,

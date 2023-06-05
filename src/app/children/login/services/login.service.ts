@@ -3,14 +3,16 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import LoginRequest from '../models/request-models/login.request-model';
 import LoginResponse from '../models/response-models/login.response-model';
-import { TokensService } from '../../../services/tokens.service';
-import { Injectable } from '@angular/core';
+import { ITokensService } from '../../../services/jwt-tokens.service';
+import { Inject, Injectable } from '@angular/core';
+import { jwtTokens } from 'app/app.module';
 
 @Injectable()
 export class LoginService {
     constructor(
         private readonly http: HttpClient,
-        private readonly tokenService: TokensService
+        @Inject(jwtTokens)
+        private readonly tokenService: ITokensService
     ) {}
 
     login(credentials: LoginRequest): Observable<LoginResponse> {

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-interface Commit {
+interface CommitResponse {
     id: string;
     short_id: string;
     created_at: string;
@@ -29,4 +29,4 @@ interface Stats {
     total: number;
 }
 
-export default Commit;
+export default CommitResponse;

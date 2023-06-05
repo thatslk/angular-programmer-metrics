@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap, forkJoin } from 'rxjs';
-import Commit from '../models/response-models/commit.response-model';
+import CommitResponse from '../models/response-models/commit.response-model';
 import {
     CodeLinesStatistic,
     EventBrief,
@@ -48,7 +48,7 @@ export class UserCodeLines {
 
     private loadStat(eventData: EventBrief): Observable<CodeLinesStatistic> {
         return this.http
-            .get<Commit>(
+            .get<CommitResponse>(
                 `/api/v4/projects/${eventData.project_id}/repository/commits/${eventData.commit_hex_number}`,
                 {
                     headers: {
@@ -57,7 +57,7 @@ export class UserCodeLines {
                 }
             )
             .pipe(
-                map<Commit, CodeLinesStatistic>((commit) => ({
+                map<CommitResponse, CodeLinesStatistic>((commit) => ({
                     sumOfAdditions: commit.stats.additions,
                     sumOfDeletions: commit.stats.deletions,
                 }))

@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import LoginRequest from '../../models/request-models/login.request-model';
 import fadingAnimation from 'app/animations/fade.animation';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login-page',
@@ -16,7 +17,10 @@ export class LoginPageComponent implements OnDestroy {
     public loginForm!: FormGroup;
     destroy$ = new Subject<void>();
 
-    constructor(private readonly loginService: LoginService) {
+    constructor(
+        private readonly loginService: LoginService,
+        private readonly _router: Router
+    ) {
         this.loginForm = new FormGroup({
             userLogin: new FormControl('', [Validators.required]),
             userPassword: new FormControl('', [Validators.required]),
@@ -37,7 +41,11 @@ export class LoginPageComponent implements OnDestroy {
             )
         );
         loginResultObservable.pipe(takeUntil(this.destroy$)).subscribe({
-            next: () => console.log('next'),
+            next: () => this._router.navigate(['user']),
+            error: () =>
+                alert(
+                    'Произошла ошибка. Проверьте корректность данных учетной записи. '
+                ),
         });
     }
 }

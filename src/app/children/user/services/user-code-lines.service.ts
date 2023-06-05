@@ -2,11 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap, forkJoin } from 'rxjs';
 import CommitResponse from '../models/response-models/commit.response-model';
-import {
-    CodeLinesStatistic,
-    EventBrief,
-} from '../models/state-models/userpage.state-model';
+import { CodeLinesStatisticDto } from '../models/dtos/code-lines-statistic.dto';
 import { UserEventsService } from './helper-services/user-events.service';
+import { EventDto } from '../models/dtos/event.dto-model';
 
 @Injectable()
 export class UserCodeLines {
@@ -15,7 +13,7 @@ export class UserCodeLines {
         private readonly http: HttpClient
     ) {}
 
-    getUserCodeLinesStatistic(): Observable<CodeLinesStatistic> {
+    getUserCodeLinesStatisticDto(): Observable<CodeLinesStatisticDto> {
         return this.userEvents.getUserEvents().pipe(
             map((events) =>
                 events.map((event) => {
@@ -46,7 +44,7 @@ export class UserCodeLines {
         );
     }
 
-    private loadStat(eventData: EventBrief): Observable<CodeLinesStatistic> {
+    private loadStat(eventData: EventDto): Observable<CodeLinesStatisticDto> {
         return this.http
             .get<CommitResponse>(
                 `/api/v4/projects/${eventData.project_id}/repository/commits/${eventData.commit_hex_number}`,
@@ -57,7 +55,7 @@ export class UserCodeLines {
                 }
             )
             .pipe(
-                map<CommitResponse, CodeLinesStatistic>((commit) => ({
+                map<CommitResponse, CodeLinesStatisticDto>((commit) => ({
                     sumOfAdditions: commit.stats.additions,
                     sumOfDeletions: commit.stats.deletions,
                 }))

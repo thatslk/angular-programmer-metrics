@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { EventDto } from '../../models/dtos/event.dto-model';
 import EventsResponse from '../../models/response-models/events.response-model';
-import { EventBrief } from '../../models/state-models/userpage.state-model';
 
 @Injectable()
 export class UserEventsService {
     constructor(private readonly http: HttpClient) {}
 
-    getUserEvents(): Observable<EventBrief[]> {
+    getUserEvents(): Observable<EventDto[]> {
         return this.http
             .get<EventsResponse>('/api/v4/events', {
                 headers: {
@@ -19,7 +19,7 @@ export class UserEventsService {
                 map(
                     (events) =>
                         events
-                            .map((event): EventBrief | undefined => {
+                            .map((event): EventDto | undefined => {
                                 if (event.push_data) {
                                     return {
                                         project_id: event.project_id,
@@ -33,7 +33,7 @@ export class UserEventsService {
                             })
                             .filter(
                                 (event) => event !== undefined
-                            ) as EventBrief[]
+                            ) as EventDto[]
                 )
             );
     }

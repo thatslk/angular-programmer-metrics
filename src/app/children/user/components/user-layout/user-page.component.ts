@@ -30,7 +30,7 @@ export class UserPageComponent implements OnInit {
             },
         });
 
-        this.userCodeLinesService.getUserCodeLinesStatistic().subscribe({
+        this.userCodeLinesService.getUserCodeLinesStatisticDto().subscribe({
             next: (stats) => {
                 console.log(stats);
             },

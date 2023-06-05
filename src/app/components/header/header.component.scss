@@ -48,4 +48,8 @@ header {
     &__list {
         list-style-type: none;
     }
+
+    &__item {
+        cursor: pointer;
+    }
 }

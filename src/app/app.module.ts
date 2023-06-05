@@ -1,4 +1,4 @@
-import { InjectionToken, NgModule } from '@angular/core';
+import { inject, InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { JwtTokensService } from './services/jwt-tokens.service';
+import { IsAuthorizedGuard } from './services/is-authorized.guard';
 
 export const jwtTokens: InjectionToken<string> = new InjectionToken(
     'jwt tokens service'
@@ -23,6 +24,7 @@ const routes: Routes = [
         path: 'user',
         loadChildren: () =>
             import('./children/user/user.module').then((m) => m.UserModule),
+        canActivate: [() => inject(IsAuthorizedGuard).canActivate()],
     },
 ];
 

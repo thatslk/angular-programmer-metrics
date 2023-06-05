@@ -4,11 +4,13 @@ import { LoginService } from '../../services/login.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import LoginRequest from '../../models/request-models/login.request-model';
+import fadingAnimation from 'app/animations/fade.animation';
 
 @Component({
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.scss'],
+    animations: [fadingAnimation],
 })
 export class LoginPageComponent implements OnDestroy {
     public loginForm!: FormGroup;

@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import LoginRequest from '../models/request-models/login-request.model';
-import LoginResponse from '../models/response-models/login-response.model';
-import { TokensService } from './tokens.service';
+import LoginRequest from '../models/request-models/login.request-model';
+import LoginResponse from '../models/response-models/login.response-model';
+import { TokensService } from '../../../services/tokens.service';
+import { Injectable } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class LoginService {
     constructor(
         private readonly http: HttpClient,

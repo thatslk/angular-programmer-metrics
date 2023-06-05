@@ -1,31 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/layout/header/header.component';
-import { LoginPageComponent } from './core/pages/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ApiInterceptor } from './core/interceptors/api.interceptor';
+import { ApiInterceptor } from './services/api.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { UserPageComponent } from './core/pages/user-page/user-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
+
+const routes: Routes = [
+    {
+        path: 'login',
+        loadChildren: () =>
+            import('./children/login/login.module').then((m) => m.LoginModule),
+    },
+    {
+        path: 'user',
+        loadChildren: () =>
+            import('./children/user/user.module').then((m) => m.UserModule),
+    },
+];
 
 @NgModule({
-    declarations: [AppComponent, LoginPageComponent, UserPageComponent],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
-        AppRoutingModule,
+        RouterModule.forRoot(routes),
         HeaderComponent,
-        FormsModule,
-        ReactiveFormsModule,
         BrowserAnimationsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
         HttpClientModule,
     ],
     providers: [

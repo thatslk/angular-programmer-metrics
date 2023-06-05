@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import LoginRequest from '../../models/request-models/login-request.model';
+import LoginRequest from '../../models/request-models/login.request-model';
 
 @Component({
     selector: 'app-login-page',

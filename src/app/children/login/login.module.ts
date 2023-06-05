@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './components/login-layout/login-page.component';
+import { LoginService } from './services/login.service';
 
 const routes: Routes = [
     {
@@ -25,7 +26,7 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
     ],
-    providers: [],
+    providers: [LoginService],
     exports: [RouterModule],
 })
 export class LoginModule {}

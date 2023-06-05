@@ -8,6 +8,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 export class StatisticCardComponent implements OnInit {
     @Input() labelText = '';
     @Input() statText = '';
+    @Input() statColor = '';
 
     @ViewChild('label', { static: false })
     labelRef: ElementRef | undefined;

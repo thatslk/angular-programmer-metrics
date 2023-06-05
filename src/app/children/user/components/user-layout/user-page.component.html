@@ -26,13 +26,13 @@
         <div class="gallery__column">
             <app-material-outlined-card class="gallery__item">
                 <app-statistic-card class="gallery__card-content" [labelText]="'Строчек добавлено за последнее время'"
-                    [statText]="state.codeLinesStatistic.sumOfAdditions.toString()">
+                    [statText]="state.codeLinesStatistic.sumOfAdditions.toString()" [statColor]="'green'">
                 </app-statistic-card>
             </app-material-outlined-card>
 
             <app-material-outlined-card class="gallery__item">
                 <app-statistic-card class="gallery__card-content" [labelText]="'Строчек удалено за последнее время'"
-                    [statText]="state.codeLinesStatistic.sumOfDeletions.toString()">
+                    [statText]="state.codeLinesStatistic.sumOfDeletions.toString()" [statColor]="'red'">
                 </app-statistic-card>
             </app-material-outlined-card>
 

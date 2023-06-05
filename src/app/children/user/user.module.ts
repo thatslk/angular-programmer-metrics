@@ -11,6 +11,7 @@ import { UserDataService } from './services/user-data.service';
 import { UserLangsService } from './services/user-langs.service';
 import { MaterialOutlinedCardComponent } from './components/material-outlined-card/material-outlined-card/material-outlined-card.component';
 import { StatisticCardComponent } from './components/material-outlined-card/statistic-card/statistic-card.component';
+import { ColorDirective } from './directives/color.directive';
 
 const routes: Routes = [
     {
@@ -23,7 +24,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [UserPageComponent, AtPrefixPipe, MaterialOutlinedCardComponent, StatisticCardComponent],
+    declarations: [
+        UserPageComponent,
+        AtPrefixPipe,
+        MaterialOutlinedCardComponent,
+        StatisticCardComponent,
+        ColorDirective,
+    ],
     imports: [RouterModule.forChild(routes), CommonModule],
     providers: [
         UserLangsService,

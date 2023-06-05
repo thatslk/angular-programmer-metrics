@@ -23,7 +23,7 @@ interface CommitResponse {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Trailers {}
 
-interface Stats {
+export interface Stats {
     additions: number;
     deletions: number;
     total: number;

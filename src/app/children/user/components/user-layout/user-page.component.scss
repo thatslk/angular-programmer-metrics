@@ -4,20 +4,72 @@
     flex-direction: column;
     gap: 20px;
 
-    &__block {
-        background-color: var(--material-theme--surfaces--surface1);
-        border-color: var(--material-theme--sys--outline);
-        border: 1px solid;
-        border-radius: 15px;
-        width: 100%;
-        height: 200px;
-        padding: 15px 25px;
+    h1,
+    p {
+        margin: 0;
+    }
+
+    &__gallery {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        &__card-content {
+            width: 100%;
+        }
+    }
+}
+
+.gallery {
+    &__column {
         display: flex;
         flex-direction: column;
+        gap: 15px;
+        width: calc(50% - 10px);
+    }
+    &__item {
+        height: fit-content;
+    }
+
+    &__langs {
+        & h2 {
+            font-size: 24px;
+        }
+
+        & p {
+            font-size: 20px;
+            margin-bottom: 5px;
+            text-align: right;
+        }
     }
 }
 
 .user-identity {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
+
+    &__names {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+        & h1 {
+            font-size: 43px;
+        }
+
+        & p {
+            font-size: 28px;
+            color: var(--material-theme--sys--on-secondary-fixed-variant);
+        }
+    }
+
+    & img {
+        width: 142px;
+        height: 142px;
+        border-radius: 142px;
+    }
 }

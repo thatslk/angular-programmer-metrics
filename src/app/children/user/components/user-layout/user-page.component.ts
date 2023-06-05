@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserCodeLines } from '../../services/user-code-lines.service';
-import { UserCommitsService } from '../../services/user-commits.service';
-import { UserDataService } from '../../services/user-data.service';
-import { UserLangsService } from '../../services/user-langs.service';
+import { ActivatedRoute } from '@angular/router';
+import UserPageState from '../../models/state-model/user-page.state-model';
 
 @Component({
     selector: 'app-user-page',
@@ -10,36 +8,13 @@ import { UserLangsService } from '../../services/user-langs.service';
     styleUrls: ['./user-page.component.scss'],
 })
 export class UserPageComponent implements OnInit {
-    constructor(
-        private readonly userDataService: UserDataService,
-        private readonly userCommitsService: UserCommitsService,
-        private readonly userCodeLinesService: UserCodeLines,
-        private readonly userLangsService: UserLangsService
-    ) {}
+    public state: UserPageState = {} as UserPageState;
+
+    constructor(private readonly activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
-        this.userDataService.getUserData().subscribe({
-            next: (response) => {
-                console.log(response);
-            },
-        });
-
-        this.userCommitsService.getUserCommitsCount().subscribe({
-            next: (count) => {
-                console.log(count);
-            },
-        });
-
-        this.userCodeLinesService.getUserCodeLinesStatisticDto().subscribe({
-            next: (stats) => {
-                console.log(stats);
-            },
-        });
-
-        this.userLangsService.getUserProjectsLangs().subscribe({
-            next: (stats) => {
-                console.log(stats);
-            },
+        this.activatedRoute.data.subscribe(({ userState }) => {
+            this.state = userState;
         });
     }
 }

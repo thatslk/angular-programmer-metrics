@@ -9,6 +9,8 @@ import { UserCodeLines } from './services/user-code-lines.service';
 import { UserCommitsService } from './services/user-commits.service';
 import { UserDataService } from './services/user-data.service';
 import { UserLangsService } from './services/user-langs.service';
+import { MaterialOutlinedCardComponent } from './components/material-outlined-card/material-outlined-card/material-outlined-card.component';
+import { StatisticCardComponent } from './components/material-outlined-card/statistic-card/statistic-card.component';
 
 const routes: Routes = [
     {
@@ -21,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [UserPageComponent, AtPrefixPipe],
+    declarations: [UserPageComponent, AtPrefixPipe, MaterialOutlinedCardComponent, StatisticCardComponent],
     imports: [RouterModule.forChild(routes), CommonModule],
     providers: [
         UserLangsService,

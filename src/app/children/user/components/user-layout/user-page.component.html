@@ -1,0 +1,41 @@
+<div class="user-page" [@fadeInOut]>
+    <app-material-outlined-card>
+        <div class="user-identity">
+            <img [src]="state.userData.avatar_url" />
+            <div class="user-identity__names">
+                <h1>{{ state.userData.name }}</h1>
+                <p>{{ state.userData.username | atPrefix }}</p>
+            </div>
+        </div>
+    </app-material-outlined-card>
+
+    <div class="user-page__gallery gallery">
+        <div class="gallery__column">
+            <app-material-outlined-card class="gallery__item">
+                <app-statistic-card class="gallery__card-content" [labelText]="'Коммитов за последнее время'"
+                    [statText]="state.commitsCount.toString()">
+                </app-statistic-card>
+            </app-material-outlined-card>
+            <app-material-outlined-card class="gallery__item gallery__langs">
+                <h2>Самые используемые языки</h2>
+                <p *ngFor="let item of state.topLanguages | keyvalue">
+                    {{ item.key }}: {{ item.value }} проект(-ов)
+                </p>
+            </app-material-outlined-card>
+        </div>
+        <div class="gallery__column">
+            <app-material-outlined-card class="gallery__item">
+                <app-statistic-card class="gallery__card-content" [labelText]="'Строчек добавлено за последнее время'"
+                    [statText]="state.codeLinesStatistic.sumOfAdditions.toString()" [statColor]="'green'">
+                </app-statistic-card>
+            </app-material-outlined-card>
+
+            <app-material-outlined-card class="gallery__item">
+                <app-statistic-card class="gallery__card-content" [labelText]="'Строчек удалено за последнее время'"
+                    [statText]="state.codeLinesStatistic.sumOfDeletions.toString()" [statColor]="'red'">
+                </app-statistic-card>
+            </app-material-outlined-card>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+
+    &__image {
+        width: 51px;
+        height: 42px;
+    }
+
+    &__label {
+        font-size: 25px;
+        margin: 0;
+        color: var(--material-theme--sys--on-surface);
+    }
+}
+
+@media (max-width: 800px) {
+    .header-logo {
+        &__label {
+            display: none;
+        }
+    }
+}

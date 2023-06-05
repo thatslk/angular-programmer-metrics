@@ -1,0 +1,15 @@
+<div class="login-page" [@fadeInOut]>
+    <form [formGroup]="loginForm" class="login-page__form login-form" (ngSubmit)="submit()" novalidate>
+        <h1>Войдите в ваш GitLab аккаунт</h1>
+        <mat-form-field class="login-form__login-input">
+            <mat-label>Логин</mat-label>
+            <input formControlName="userLogin" matInput>
+        </mat-form-field>
+        <mat-form-field class="login-form__password-input">
+            <mat-label>Пароль</mat-label>
+            <input type="password" formControlName="userPassword" matInput>
+        </mat-form-field>
+        <button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary"
+            class="login-form__submit">🔥 ВОЙТИ</button>
+    </form>
+</div>

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import LoginRequest from '../models/request-models/login-request.model';
 import LoginResponse from '../models/response-models/login-response.model';
-import { TokensService } from './tokens.service';
+import { TokensService } from '../../../services/tokens.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {

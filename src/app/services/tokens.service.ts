@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import TokensDto from '../models/dtos/tokes-dto.model';
+import TokensDto from '@src/app/models/dtos/tokes-dto.model';
 
 @Injectable({ providedIn: 'root' })
 export class TokensService {

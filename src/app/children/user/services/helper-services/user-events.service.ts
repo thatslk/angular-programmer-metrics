@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import EventsResponse from '../../models/response-models/events-response.model';
-import { EventBrief } from '../../models/state-models/userpage-state.model';
+import EventsResponse from '../../models/response-models/events.response-model';
+import { EventBrief } from '../../models/state-models/userpage.state-model';
 
 @Injectable()
 export class UserEventsService {

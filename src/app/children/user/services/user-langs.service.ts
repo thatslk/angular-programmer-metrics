@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, map, mergeAll, Observable, switchMap } from 'rxjs';
-import ProjectLanguagesResponse from '../models/response-models/project-languages-response.model';
-import ProjectsResponse from '../models/response-models/projects-response.model';
+import ProjectLanguagesResponse from '../models/response-models/project-languages.response-model';
+import ProjectsResponse from '../models/response-models/projects.response-model';
 
 @Injectable()
 export class UserLangsService {

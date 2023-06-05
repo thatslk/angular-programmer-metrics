@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, switchMap, forkJoin } from 'rxjs';
-import Commit from '../models/response-models/commit-response.model';
+import Commit from '../models/response-models/commit.response-model';
 import {
     CodeLinesStatistic,
     EventBrief,
-} from '../models/state-models/userpage-state.model';
+} from '../models/state-models/userpage.state-model';
 import { UserEventsService } from './helper-services/user-events.service';
 
 @Injectable()

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import LoginRequest from '../models/request-models/login-request.model';
-import LoginResponse from '../models/response-models/login-response.model';
+import LoginRequest from '../models/request-models/login.request-model';
+import LoginResponse from '../models/response-models/login.response-model';
 import { TokensService } from '../../../services/tokens.service';
 import { Injectable } from '@angular/core';
 

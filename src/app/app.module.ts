@@ -16,6 +16,11 @@ export const jwtTokens: InjectionToken<string> = new InjectionToken(
 
 const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'user',
+        pathMatch: 'full',
+    },
+    {
         path: 'login',
         loadChildren: () =>
             import('./children/login/login.module').then((m) => m.LoginModule),

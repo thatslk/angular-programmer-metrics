@@ -73,3 +73,17 @@
         border-radius: 142px;
     }
 }
+
+@media (max-width: 550px) {
+    .user-page {
+        &__gallery {
+            flex-direction: column;
+        }
+    }
+
+    .gallery {
+        &__column {
+            width: 100%;
+        }
+    }
+}

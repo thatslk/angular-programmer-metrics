@@ -16,8 +16,6 @@ export class LoginService {
     ) {}
 
     login(credentials: LoginRequest): Observable<LoginResponse> {
-        console.log('Login method');
-        console.log(credentials);
         return this.http.post<LoginResponse>('/oauth/token', credentials).pipe(
             tap((response) =>
                 this.tokenService.setTokens({

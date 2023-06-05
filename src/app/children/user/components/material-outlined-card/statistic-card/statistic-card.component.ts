@@ -1,11 +1,11 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'app-statistic-card',
     templateUrl: './statistic-card.component.html',
     styleUrls: ['./statistic-card.component.scss'],
 })
-export class StatisticCardComponent implements OnInit {
+export class StatisticCardComponent {
     @Input() labelText = '';
     @Input() statText = '';
     @Input() statColor = '';
@@ -21,8 +21,5 @@ export class StatisticCardComponent implements OnInit {
             this.labelRef.nativeElement.textContent = this.labelText;
             this.statRef.nativeElement.textContent = this.statText;
         }
-    }
-    ngOnInit(): void {
-        console.log('ON INIT!');
     }
 }

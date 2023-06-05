@@ -10,7 +10,6 @@ export class UserCommitsService {
         return this.userEvents.getUserEvents().pipe(
             map((events) =>
                 events.reduce((acc, event) => {
-                    console.log(event);
                     return acc + event.commit_count;
                 }, 0)
             )

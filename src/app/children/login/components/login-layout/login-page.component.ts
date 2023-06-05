@@ -33,7 +33,6 @@ export class LoginPageComponent implements OnDestroy {
     }
 
     submit() {
-        console.log(this.loginForm);
         const loginResultObservable = this.loginService.login(
             new LoginRequest(
                 this.loginForm.value['userLogin'],
